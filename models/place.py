@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
+from models.review import Review
 from models.amenity import Amenity
 from sqlalchemy import Table, Column, String, Integer, Float, ForeignKey
 
@@ -36,7 +37,9 @@ class Place(BaseModel, Base):
     @property
     def reviews(self):
         """Returns a list of 'Review' instances for this place"""
-        my_reviews = [rev for rev in reviews where rev.place_id == self.id]
+        from models import storage
+        all_reviews = storage.all(Review)
+        my_reviews = [rr for rr in all_reviews if rr.place_id == self.id]
         return my_reviews
 
     @property
