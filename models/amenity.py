@@ -4,7 +4,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 
 
-class Amenity(BaseModel):
+class Amenity(BaseModel, Base):
     """Represent the amenities available at a certain place """
 
     __tablename__ = 'amenities'
