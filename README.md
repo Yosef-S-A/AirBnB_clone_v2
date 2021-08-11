@@ -33,7 +33,7 @@ The following class are supported:
 * Review
 
 <center> <h2> Storage </h2> </center>
-The classes mentioned above are handled by either [FileStorage] (https://github.com/Yosef-S-A/AirBnB_clone_v2/blob/master/models/engine/file_storage.py) or [DBStorage] (https://github.com/Yosef-S-A/AirBnB_clone_v2/blob/master/models/engine/db_storage.py)
+The classes mentioned above are handled by either [FileStorage](https://github.com/Yosef-S-A/AirBnB_clone_v2/blob/master/models/engine/file_storage.py) or [DBStorage](https://github.com/Yosef-S-A/AirBnB_clone_v2/blob/master/models/engine/db_storage.py)
 
 <center> <h2>General Use</h2> </center>
 
