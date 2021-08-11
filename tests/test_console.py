@@ -13,13 +13,15 @@ from models.engine.db_storage import DBStorage
 from models.engine.file_storage import FileStorage
 from models import storage
 
+
 class TestHBNBCommand(unittest.TestCase):
+
     """Unittests for testing the HBNB command interpreter."""
 
     @classmethod
     def setUpClass(cls):
         """HBNBCommand testing setup.
-        
+
         Temporaily rename any existing json file.
         Create an instance of the command interpreter.
         """
@@ -75,7 +77,6 @@ class TestHBNBCommand(unittest.TestCase):
         self.assertIsNotNone(HBNBCommand.do_all.__doc__)
         self.assertIsNotNone(HBNBCommand.do_update.__doc__)
         self.assertIsNotNone(HBNBCommand.do_count.__doc__)
-        
 
     def test_emptyline(self):
         """empty line input test."""
@@ -89,10 +90,10 @@ class TestHBNBCommand(unittest.TestCase):
 #            self.HBNB.onecmd("quit")
 #            self.assertEqual("", f.getvalue())
 
- #   def test_EOF(self):
- #       """Test that EOF quits."""
- #       with patch("sys.stdout", new=StringIO()) as f:
- #           self.assertTrue(self.HBNB.onecmd("EOF"))
+#    def test_EOF(self):
+#        """Test that EOF quits."""
+#        with patch("sys.stdout", new=StringIO()) as f:
+#            self.assertTrue(self.HBNB.onecmd("EOF"))
 
     @unittest.skipIf(type(models.storage) == DBStorage, "Testing DBStorage")
     def test_create(self):
@@ -118,7 +119,7 @@ class TestHBNBCommand(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as f:
             self.HBNB.onecmd("create Amenity")
             am = f.getvalue().strip()
-        #with patch("sys.stdout", new=StringIO()) as f:
+        # with patch("sys.stdout", new=StringIO()) as f:
         #    self.HBNB.onecmd("all BaseModel")
         #    self.assertIn(bm, f.getvalue())
         with patch("sys.stdout", new=StringIO()) as f:
@@ -158,6 +159,7 @@ class TestHBNBCommand(unittest.TestCase):
             self.HBNB.onecmd("show BaseModel abcd-123")
             self.assertEqual(
                 "** no instance found **\n", f.getvalue())
+
     def test_destroy(self):
         """Test destroy command input."""
         with patch("sys.stdout", new=StringIO()) as f:
@@ -209,7 +211,7 @@ class TestHBNBCommand(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as f:
             self.HBNB.onecmd("all User")
             obj = f.getvalue()
-            
+
         objs = storage.all()
         for key, value in objs.items():
             kk = key.split(".")
