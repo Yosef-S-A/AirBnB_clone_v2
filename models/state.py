@@ -20,7 +20,7 @@ class State(BaseModel, Base):
     else:
         @property
         def cities(self):
-            """Returns the list of City instances corresponding to this state"""
+            """Return the list of City instances corresponding to this state"""
             from models import storage
             my_cities = storage.all(City)
             state_city = [cc for cc in my_cities.values()

@@ -57,11 +57,13 @@ class Place(BaseModel, Base):
             """Return a list of 'Amenity' instances for this place"""
             from models import storage
             all_amenities = storage.all(Amenity)
-            my_amenities = [amen for amen in all_amenities.values() if amen.id in
-                            self.amenity_ids]
+            my_amenities = [amen for amen in all_amenities.values()
+                            if amen.id in self.amenity_ids]
 
         @amenities.setter
         def amenities(self, value):
-            """Add amenity id of amenity available at this place in amenity_ids"""
+            """Add amenity id of amenity available at this place
+            in amenity_ids
+            """
             if (type(value) is Amenity):
                 amenity_ids.append(value.id)
