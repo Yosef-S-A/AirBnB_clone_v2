@@ -223,7 +223,7 @@ class TestHBNBCommand(unittest.TestCase):
                 self.HBNB.onecmd('update {} {} id'.format(kk[0], kk[1]))
                 self.assertEqual(
                     "** value missing **\n", f.getvalue().strip())
-            
+
     def test_create_errors(self):
         """ create command errors test. """
         with patch("sys.stdout", new=StringIO()) as f:
@@ -234,7 +234,7 @@ class TestHBNBCommand(unittest.TestCase):
             self.HBNB.onecmd("create lafjla")
             self.assertEqual(
                 "** class doesn't exist **\n", f.getvalue())
-            
+
 
 if __name__ == "__main__":
     unittest.main()
