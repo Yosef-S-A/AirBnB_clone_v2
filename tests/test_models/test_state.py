@@ -13,7 +13,8 @@ class test_state(test_basemodel):
         self.name = "State"
         self.value = State
 
-    def test_name3(self):
-        """ """
+    def test_name(self):
+        """ Test attribute name is empty"""
         new = self.value()
-        self.assertEqual(type(new.name), str)
+        self.assertTrue(hasattr(new, "name"))
+        self.assertEqual(new.name, None)

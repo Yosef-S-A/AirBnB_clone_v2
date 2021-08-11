@@ -8,22 +8,25 @@ class test_review(test_basemodel):
     """ """
 
     def __init__(self, *args, **kwargs):
-        """ """
+        """ Initialize class for testing """
         super().__init__(*args, **kwargs)
         self.name = "Review"
         self.value = Review
 
     def test_place_id(self):
-        """ """
+        """ Test place_id attribute to be an empty string"""
         new = self.value()
-        self.assertEqual(type(new.place_id), str)
+        self.assertTrue(hasattr(new, "place_id"))
+        self.assertEqual(new.place_id, None)
 
     def test_user_id(self):
-        """ """
+        """ Test user_id attribute to be an empty string"""
         new = self.value()
-        self.assertEqual(type(new.user_id), str)
+        self.assertTrue(hasattr(new, "user_id"))
+        self.assertEqual(new.user_id, None)
 
     def test_text(self):
-        """ """
+        """ Test text attribute to be an empty string"""
         new = self.value()
-        self.assertEqual(type(new.text), str)
+        self.assertTrue(hasattr(new, "text"))
+        self.assertEqual(new.text, None)

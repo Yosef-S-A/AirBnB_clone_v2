@@ -14,11 +14,13 @@ class test_City(test_basemodel):
         self.value = City
 
     def test_state_id(self):
-        """ """
+        """ Test state_id attribute to be an empty string """
         new = self.value()
-        self.assertEqual(type(new.state_id), str)
+        self.assertTrue(hasattr(new, "state_id"))
+        self.assertEqual(new.state_id, None)
 
     def test_name(self):
-        """ """
+        """ Test name attribute to be an empty string"""
         new = self.value()
-        self.assertEqual(type(new.name), str)
+        self.assertTrue(hasattr(new, "name"))
+        self.assertEqual(new.name, None)

@@ -14,6 +14,7 @@ class test_Amenity(test_basemodel):
         self.value = Amenity
 
     def test_name2(self):
-        """ """
+        """ Test name attribute to be an empty string"""
         new = self.value()
-        self.assertEqual(type(new.name), str)
+        self.assertTrue(hasattr(new, "name"))
+        self.assertEqual(new.name, None)
