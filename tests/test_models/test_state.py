@@ -2,8 +2,10 @@
 """ Contains tests for class State """
 from tests.test_models.test_base_model import test_basemodel
 from models.state import State
+from models import state
 import inspect
 import pep8
+import unittest
 
 
 class test_state(test_basemodel):

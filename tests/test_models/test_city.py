@@ -5,10 +5,11 @@ import unittest
 import inspect
 from tests.test_models.test_base_model import test_basemodel
 from models.city import City
+from models import city
 
 
 class test_City(test_basemodel):
-    """ """
+    """ Test for class City """
 
     def __init__(self, *args, **kwargs):
         """ Initialize the class and set up relevant resources """
@@ -35,20 +36,22 @@ class test_City(test_basemodel):
 
     def test_to_dict_assert_values(self):
         """Test that the values in to_dict() are correct"""
-        city_dict = self.value().to_dict()
-        self.assertNotin("_sa_instance_state", city_dict.keys())
+        city = self.value()
+        city_dict = city.to_dict()
+        self.assertNotIn("_sa_instance_state", city_dict.keys())
         self.assertEqual(city_dict["__class__"], "City")
         t_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.assertEqual(city_dict["created_at"],
-                         c.created_at.strftime(t_format))
+                         city.created_at.strftime(t_format))
         self.assertEqual(city_dict["updated_at"],
-                         c.updated_at.strftime(t_format))
+                         city.updated_at.strftime(t_format))
 
     def test_str(self):
         """Test that the str method has the correct output"""
         city = self.value()
         string = "[City] ({}) {}".format(city.id, city.to_dict())
         self.assertEqual(string, str(city))
+
 
 class TestCityDocs(unittest.TestCase):
     """Tests to check the documentation and style of City class"""

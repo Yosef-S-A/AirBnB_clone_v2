@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """Contains tests for the BaseModel Class """
 from models.base_model import BaseModel
+from models import base_model
 import unittest
 import datetime
 from uuid import UUID
 import json
 import os
 import inspect
-import pep8
+import pep8 as pycodestyle
 
 
 class test_basemodel(unittest.TestCase):
@@ -113,14 +114,14 @@ class TestBaseModelDocs(unittest.TestCase):
         for path in ['models/base_model.py',
                      'tests/test_models/test_base_model.py']:
             with self.subTest(path=path):
-                errors = pep8.pycodestyle.Checker(path).check_all()
+                errors = pycodestyle.Checker(path).check_all()
                 self.assertEqual(errors, 0)
 
     def test_module_docstring(self):
         """Test for the existence of module docstring"""
-        self.assertIsNot(module_doc, None,
+        self.assertIsNot(base_model.__doc__, None,
                          "base_model.py needs a docstring")
-        self.assertTrue(len(module_doc) > 1,
+        self.assertTrue(len(base_model.__doc__) > 1,
                         "base_model.py needs a docstring")
 
     def test_class_docstring(self):
@@ -135,6 +136,6 @@ class TestBaseModelDocs(unittest.TestCase):
         for func in self.base_funcs:
             with self.subTest(function=func):
                 self.assertIsNot(func[1].__doc__, None,
-                    "{:s} method needs a docstring".format(func[0]))
+                                 "{:s} method needs docstring".format(func[0]))
                 self.assertTrue(len(func[1].__doc__) > 1,
-                    "{:s} method needs a docstring".format(func[0]))
+                                "{:s} method needs docstring".format(func[0]))

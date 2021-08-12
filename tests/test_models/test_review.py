@@ -2,8 +2,10 @@
 """ Contains tests for class Review """
 import inspect
 import pep8
+import unittest
 from tests.test_models.test_base_model import test_basemodel
 from models.review import Review
+from models import review
 
 
 class test_review(test_basemodel):
@@ -56,6 +58,7 @@ class test_review(test_basemodel):
         string = "[Review] ({}) {}".format(review.id, review.to_dict())
         self.assertEqual(string, str(review))
 
+
 class TestReviewDocs(unittest.TestCase):
     """Tests to check the documentation and style of Review class"""
     @classmethod
@@ -97,4 +100,4 @@ class TestReviewDocs(unittest.TestCase):
             self.assertIsNot(func[1].__doc__, None,
                              "{:s} method needs a docstring".format(func[0]))
             self.assertTrue(len(func[1].__doc__) >= 1,
-                            "{:s} method needs a docstring".format(func[0])
+                            "{:s} method needs a docstring".format(func[0]))

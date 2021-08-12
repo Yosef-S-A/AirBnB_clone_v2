@@ -2,8 +2,10 @@
 """ Contains tests for class User """
 from tests.test_models.test_base_model import test_basemodel
 from models.user import User
+from models import user
 import pep8
 import inspect
+import unittest
 
 
 class test_User(test_basemodel):

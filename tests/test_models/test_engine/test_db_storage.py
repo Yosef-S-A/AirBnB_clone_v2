@@ -21,12 +21,13 @@ from console import HBNBCommand
 
 classes = {"Amenity": Amenity, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
-my_db = MySQLdb.connect(host=os.getenv("HBNB_MYSQL_HOST"),
-                        port=3306,
-                        user=os.getenv("HBNB_MYSQL_USER"),
-                        password=os.getenv("HBNB_MYSQL_PWD"),
-                        db=os.getenv("HBNB_MYSQL_DB"))
-cursor = my_db.cursor()
+if os.getenv("HBNB_TYPE_STORAGE") == 'db':
+    my_db = MySQLdb.connect(host=os.getenv("HBNB_MYSQL_HOST"),
+                            port=3306,
+                            user=os.getenv("HBNB_MYSQL_USER"),
+                            password=os.getenv("HBNB_MYSQL_PWD"),
+                            db=os.getenv("HBNB_MYSQL_DB"))
+    cursor = my_db.cursor()
 
 
 @unittest.skipIf(os.getenv("HBNB_TYPE_STORAGE") != 'db', "Testing db storage")
