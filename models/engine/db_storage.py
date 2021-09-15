@@ -86,7 +86,7 @@ class DBStorage:
         """
         if obj:
             self.__session.delete(obj)
-    
+
     def close(self):
         """Close the working SQLAlchemy session."""
         self.__session.close()
