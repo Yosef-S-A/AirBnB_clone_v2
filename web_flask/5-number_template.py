@@ -38,6 +38,7 @@ def py_message(text='is cool'):
 def num(n):
     return "%d is a number" % n
 
+
 @app.route("/number_template/<int:n>", strict_slashes=False)
 def number_template(n):
     """Displays an HTML page only if <n> is an integer."""
